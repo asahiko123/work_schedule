@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.redirect')
 
 @section('content')
 <div class="container">
