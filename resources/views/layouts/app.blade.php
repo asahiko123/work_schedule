@@ -18,6 +18,71 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- fullcalender-->
+
+    <link href='../../css/core/main.css' rel='stylesheet' />
+    <link href='../../css/daygrid/main.css' rel='stylesheet' />
+    <link href='../../css/timegrid/main.css' rel='stylesheet' />
+    <link href='../../css/list/main.css' rel='stylesheet' />
+    <script src='../../js/core/main.js'></script>
+    <script src='../../js/core/locales-all.js'></script>
+    <script src='../../js/interaction/main.js'></script>
+    <script src='../../js/daygrid/main.js'></script>
+    <script src='../../js/timegrid/main.js'></script>
+    <script src='../../js/list/main.js'></script>
+    <script src='../../js/calender.js'></script>
+
+    <style>
+
+  body {
+    margin-top: 40px;
+    font-size: 14px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  }
+
+  #wrap {
+    width: 1100px;
+    margin: 0 auto;
+  }
+
+  #external-events {
+    float: left;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+    text-align: left;
+  }
+
+  #external-events h4 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 1em;
+  }
+
+  #external-events .fc-event {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  #external-events p {
+    margin: 1.5em 0;
+    font-size: 11px;
+    color: #666;
+  }
+
+  #external-events p input {
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  #calendar {
+    float: right;
+    width: 900px;
+  }
+
+</style>
 </head>
 <body>
     <div id="app">
