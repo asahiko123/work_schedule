@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\ScheduleForm;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
@@ -11,7 +12,7 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return view('schedules.index');
     }
@@ -23,7 +24,7 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+        return view('schedules.create');
     }
 
     /**
@@ -34,7 +35,17 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $schedule = new ScheduleForm;
+
+        $schedule->name = $request->input('name');
+        $schedule->description = $request->input('description');
+        $schedule->workday = $request->input('workday');
+        $schedule->start_time =$request->input('start_time');
+        $schedule->end_time = $request->input('end_time');
+        $schedule->save();
+
+        return redirect('schedule/index');
+
     }
 
     /**
@@ -80,5 +91,11 @@ class ScheduleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function getEvents(){
+        $data =DB::table('schedule_forms')->select('name','description','workday','start_time','end_time')->get();
+        return response()->json($data);
     }
 }

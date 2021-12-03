@@ -48,6 +48,22 @@ document.addEventListener('DOMContentLoaded', function() {
           // if so, remove the element from the "Draggable Events" list
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
+      },
+      EventSource:[{
+        url: '/get_events',
+      }],
+      selectable: true,
+      select: function(info){
+
+        document.location.href="/schedule/create";
+      },
+      eventClick: function(info) {
+        //eventをドラッグした時の処理
+        //editEventDate(info);
+      },
+      eventDrop:function(info){
+          //eventをドロップした時の処理
+          //addEvent(calender,info);
       }
     });
     calendar.render();

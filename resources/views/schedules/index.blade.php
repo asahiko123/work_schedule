@@ -24,7 +24,7 @@
         <h4>Draggable Events</h4>
 
         <div id='external-events-list'>
-            <div class='fc-event'>My Event 1</div>
+            <div class='fc-event'>出勤予定</div>
             <div class='fc-event'>My Event 2</div>
             <div class='fc-event'>My Event 3</div>
             <div class='fc-event'>My Event 4</div>

@@ -31,5 +31,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix'=>'schedule','middleware'=>'auth'],function(){
-    Route::get('index',[ScheduleController::class,'index'])->name('schedule.index');
+    Route::get('get_events',[ScheduleController::class],'getEvents')->name('schedules.event');
+    Route::get('index',[ScheduleController::class,'index'])->name('schedules.index');
+    Route::get('create',[ScheduleController::class,'create'])->name('schedules.create');
+    Route::post('store',[ScheduleController::class,'store'])->name('schedules.store');
+
 });
