@@ -49,24 +49,26 @@ document.addEventListener('DOMContentLoaded', function() {
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
       },
-      EventSource:[{
-        url: '/get_events',
-      }],
+      events:"/index",
       selectable: true,
       select: function(info){
 
         document.location.href="/schedule/create";
       },
+
       eventClick: function(info) {
         //eventをドラッグした時の処理
         //editEventDate(info);
       },
       eventDrop:function(info){
           //eventをドロップした時の処理
-          //addEvent(calender,info);
+        //addEvent(calender,info);
       }
     });
     calendar.render();
 
   });
+
+
+
 

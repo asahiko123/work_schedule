@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.axios = require("axios");
+
 require('./bootstrap');
-require("../js/calender");
+
 window.Vue = require('vue').default;
 
 /**

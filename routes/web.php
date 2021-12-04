@@ -35,5 +35,4 @@ Route::group(['prefix'=>'schedule','middleware'=>'auth'],function(){
     Route::get('index',[ScheduleController::class,'index'])->name('schedules.index');
     Route::get('create',[ScheduleController::class,'create'])->name('schedules.create');
     Route::post('store',[ScheduleController::class,'store'])->name('schedules.store');
-
 });

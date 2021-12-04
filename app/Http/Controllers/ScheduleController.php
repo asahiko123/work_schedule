@@ -14,7 +14,11 @@ class ScheduleController extends Controller
      */
     public function index(Request $request)
     {
-        return view('schedules.index');
+        $data = DB::table('schedule_forms')->select('name as title', 'description','workday as start,end', 'start_time as startTime','end_time as endTime')
+        ->get();
+        // dd($data);
+        return view('schedules.index',['data'=>$data]);
+
     }
 
     /**
@@ -93,9 +97,4 @@ class ScheduleController extends Controller
         //
     }
 
-
-    public function getEvents(){
-        $data =DB::table('schedule_forms')->select('name','description','workday','start_time','end_time')->get();
-        return response()->json($data);
-    }
 }
