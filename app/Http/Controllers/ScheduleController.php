@@ -14,7 +14,7 @@ class ScheduleController extends Controller
      */
     public function index(Request $request)
     {
-        $data = DB::table('schedule_forms')->select('name as title', 'description','workday as start','start_time as startTime','end_time as endTime')
+    $data = DB::table('schedule_forms')->select('name as title', 'description','workday as start','start_time','end_time')
         ->get();
 
         file_put_contents("json-events.json" , $data);
