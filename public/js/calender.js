@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     var Calendar = FullCalendar.Calendar;
     var Draggable = FullCalendarInteraction.Draggable
@@ -49,10 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
       },
-      events:"/index",
+      events:'../json-events.json',
       selectable: true,
       select: function(info){
-
         document.location.href="/schedule/create";
       },
 
