@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\ScheduleForm;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class ScheduleController extends Controller
 {
@@ -48,6 +50,8 @@ class ScheduleController extends Controller
         $schedule->workday = $request->input('workday');
         $schedule->start_time =$request->input('start_time');
         $schedule->end_time = $request->input('end_time');
+        $schedule->uuid =(String)Str::uuid();
+
         $schedule->save();
 
         return redirect('schedule/index');
