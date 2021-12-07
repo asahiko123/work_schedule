@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnUuidToScheduleFormsTable extends Migration
+class AddColumnRoleToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnUuidToScheduleFormsTable extends Migration
      */
     public function up()
     {
-        Schema::table('schedule_forms', function (Blueprint $table) {
-            $table->uuid('uuid')->unique();
+        Schema::table('users', function (Blueprint $table) {
+            $table->tinyInteger('role')->default(0)->after('password')->index('index_role')->comment('ロール');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnUuidToScheduleFormsTable extends Migration
      */
     public function down()
     {
-        Schema::table('schedule_forms', function (Blueprint $table) {
-            $table->uuid('uuid')->unique();
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
         });
     }
 }

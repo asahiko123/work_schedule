@@ -24,18 +24,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::group(['prefix'=>'schedule','middleware'=>'auth'],function(){
-    Route::get('get_events',[ScheduleController::class],'getEvents')->name('schedules.event');
+Route::group(['prefix'=>'schedule','middleware'=>['auth','can:user-higher']],function(){
     Route::get('index',[ScheduleController::class,'index'])->name('schedules.index');
+});
+
+Route::group(['prefix'=>'schedule','middleware'=>['auth','can:admin-higher']],function(){
     Route::get('create',[ScheduleController::class,'create'])->name('schedules.create');
     Route::post('store',[ScheduleController::class,'store'])->name('schedules.store');
     Route::post('delete/{id}',[ScheduleController::class,'destroy'])->name('schedules.delete');
     Route::post('update/{id}',[ScheduleController::class,'update'])->name('schedules.update');
-    Route::post('calendar-get', [ScheduleController::class, 'scheduleGet'])->name('schedule-get');
+});
+
+Route::group(['prefix'=>'schedule','middleware'=>['auth','can:system-only']],function(){
+    //
 });
