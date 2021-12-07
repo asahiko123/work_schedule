@@ -17,25 +17,6 @@
             </div>
         </div> -->
 
-        <div id='wrap'>
-
-        <div id='external-events'>
-        <h4>Draggable Events</h4>
-
-        <div id='external-events-list'>
-            <div class='fc-event'>出勤予定</div>
-            <div class='fc-event'>My Event 2</div>
-            <div class='fc-event'>My Event 3</div>
-            <div class='fc-event'>My Event 4</div>
-            <div class='fc-event'>My Event 5</div>
-        </div>
-
-        <p>
-            <input type='checkbox' id='drop-remove' />
-            <label for='drop-remove'>remove after drop</label>
-        </p>
-        </div>
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

@@ -3,18 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var Calendar = FullCalendar.Calendar;
     var Draggable = FullCalendarInteraction.Draggable
 
-    /* initialize the external events
-    -----------------------------------------------------------------*/
-
-    var containerEl = document.getElementById('external-events-list');
-    new Draggable(containerEl, {
-      itemSelector: '.fc-event',
-      eventData: function(eventEl) {
-        return {
-          title: eventEl.innerText.trim()
-        }
-      }
-    });
 
     //// the individual way to do it
     // var containerEl = document.getElementById('external-events-list');
