@@ -16,12 +16,13 @@ class ScheduleController extends Controller
      */
     public function index(Request $request)
     {
-    $data = DB::table('schedule_forms')->select('name as title',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
+    $schedules = DB::table('schedule_forms')
+        ->select('id','name as title',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
         ->get();
 
-        file_put_contents("json-events.json" , $data);
+        file_put_contents("json-events.json" , $schedules);
 
-        return view('schedules.index',compact('data'));
+        return view('schedules.index',compact('schedules'));
 
     }
 
@@ -89,7 +90,12 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $schedule = ScheduleForm::find($id);
+
+        $schedule->workday = $request->input('workday');
+        $schedule->save();
+
+        return redirect('schedule/index');
     }
 
     /**
@@ -100,6 +106,9 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $schedule =ScheduleForm::find($id);
+        $schedule->delete();
+
+        return redirect('schedule/index');
     }
 }

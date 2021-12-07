@@ -57,8 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
       },
 
       eventClick: function(info) {
-        //eventをドラッグした時の処理
-        //editEventDate(info);
+        $('#exampleModalLabel').html('イベントの更新または削除'); // モーダルのタイトルをセット
+        $('#modalBody').html(''); // モーダルの本文をセット
+        $('#exampleModal').modal(); // モーダル着火
       },
       eventDrop:function(info){
           //eventをドロップした時の処理
