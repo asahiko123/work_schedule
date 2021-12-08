@@ -36,7 +36,6 @@
     <style>
 
   body {
-    margin-top: 40px;
     font-size: 14px;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   }

@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       },
       locale:'ja',
-      editable: true,
-      droppable: true, // this allows things to be dropped onto the calendar
+      editable: false,
+      droppable: false, // this allows things to be dropped onto the calendar
       drop: function(arg) {
         // is the "remove after drop" checkbox checked?
         if (document.getElementById('drop-remove').checked) {
