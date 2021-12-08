@@ -25,6 +25,7 @@
     <link href='../../css/daygrid/main.css' rel='stylesheet' />
     <link href='../../css/timegrid/main.css' rel='stylesheet' />
     <link href='../../css/list/main.css' rel='stylesheet' />
+    <link href='../../css/calendar.css' rel='stylesheet' />
     <script src='../../js/core/main.js'></script>
     <script src='../../js/core/locales-all.js'></script>
     <script src='../../js/interaction/main.js'></script>
