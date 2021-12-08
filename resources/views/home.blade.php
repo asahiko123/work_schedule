@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    ログインしました。自動的に画面が変わります。
                 </div>
             </div>
         </div>

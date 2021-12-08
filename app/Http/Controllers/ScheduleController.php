@@ -51,7 +51,6 @@ class ScheduleController extends Controller
         $schedule->workday = $request->input('workday');
         $schedule->start_time =$request->input('start_time');
         $schedule->end_time = $request->input('end_time');
-        $schedule->uuid =(String)Str::uuid();
 
         $schedule->save();
 
