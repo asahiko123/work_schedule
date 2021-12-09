@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\ScheduleForm;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 
 class ScheduleController extends Controller
@@ -16,9 +18,15 @@ class ScheduleController extends Controller
      */
     public function index(Request $request)
     {
-    $schedules = DB::table('schedule_forms')
-        ->select('id','name as title',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
-        ->get();
+    // $schedules = DB::table('schedule_forms')
+    //     ->select('id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
+    //     ->get();
+
+        $id =Auth::id();
+        $forms =User::find($id)->scheduleForms();
+
+        $schedules =$forms->select('id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
+                          ->get();
 
         file_put_contents("json-events.json" , $schedules);
 
@@ -33,7 +41,11 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        return view('schedules.create');
+        $users =DB::table('users')
+                    ->select('id','name')
+                    ->get();
+
+        return view('schedules.create',compact('users'));
     }
 
     /**
@@ -46,11 +58,11 @@ class ScheduleController extends Controller
     {
         $schedule = new ScheduleForm;
 
-        $schedule->name = $request->input('name');
         $schedule->description = $request->input('description');
         $schedule->workday = $request->input('workday');
         $schedule->start_time =$request->input('start_time');
         $schedule->end_time = $request->input('end_time');
+        $schedule->user_id = $request->input('user_id');
 
         $schedule->save();
 

@@ -17,9 +17,19 @@
                     <form method="POST" action="{{route('schedules.store')}}">
                     @csrf
                     <div class="d-grid gap-3 col-lg-5 py-2">
-                    <div class="col-md-12">
+                    <!-- <div class="col-md-12">
                     <label>氏名</label>
                     <input type="text" class="form-control col-md-6"name="name"required>
+                    </div> -->
+
+                    <div class="col-md-12">
+                    <label>名前</label>
+                    <select class="form-select form-control mb-3" name="user_id" required>
+                    <option selected>選択してください</option>
+                        @foreach($users as $user)
+                        <option value="{{$user->id}}">{{$user->name}}</option>
+                        @endforeach
+                    </select>
                     </div>
 
                     <div class="col-md-12">
