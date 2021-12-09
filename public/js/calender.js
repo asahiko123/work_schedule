@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
       select: function(info){
         document.location.href="/schedule/create";
       },
-
       eventClick: function(info) {
         $('#exampleModalLabel').html('イベントの更新または削除'); // モーダルのタイトルをセット
         $('#modalBody').html(''); // モーダルの本文をセット

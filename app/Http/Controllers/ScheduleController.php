@@ -27,12 +27,14 @@ class ScheduleController extends Controller
         $role =User::find($id)->role;
 
         $schedules =$forms
-            ->select('id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
+            ->select('schedule_forms.id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'),'user_id','name as title')
+            ->leftjoin('users','users.id','=','schedule_forms.user_id')
             ->get();
 
         if(0<$role && $role<=5){
             $schedules = DB::table('schedule_forms')
-              ->select('id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
+              ->select('schedule_forms.id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'),'user_id','name as title')
+              ->leftjoin('users','users.id','=','schedule_forms.user_id')
               ->get();
         }
 
