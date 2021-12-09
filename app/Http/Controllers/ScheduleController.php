@@ -24,7 +24,6 @@ class ScheduleController extends Controller
 
         $id =Auth::id();
         $forms =User::find($id)->scheduleForms();
-
         $role =User::find($id)->role;
 
         $schedules =$forms
