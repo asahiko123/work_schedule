@@ -25,8 +25,17 @@ class ScheduleController extends Controller
         $id =Auth::id();
         $forms =User::find($id)->scheduleForms();
 
-        $schedules =$forms->select('id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
-                          ->get();
+        $role =User::find($id)->role;
+
+        $schedules =$forms
+            ->select('id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
+            ->get();
+
+        if(0<$role && $role<=5){
+            $schedules = DB::table('schedule_forms')
+              ->select('id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'))
+              ->get();
+        }
 
         file_put_contents("json-events.json" , $schedules);
 
