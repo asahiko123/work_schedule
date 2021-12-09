@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div> -->
-
+        @can('admin-higher')
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -62,7 +62,7 @@
             </div>
         </div>
         </div>
-
+        @endcan
 
         <div id='calendar'></div>
 
