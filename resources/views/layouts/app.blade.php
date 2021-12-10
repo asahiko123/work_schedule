@@ -34,6 +34,9 @@
     <script src='../../js/list/main.js'></script>
     <script src='../../js/calender.js'></script>
 
+    <!--fontawsome-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
     <style>
 
   body {
@@ -102,10 +105,11 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <div class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('form.login.login') }}</a>
                                 </li>
@@ -135,7 +139,7 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
+                    </div>
                 </div>
             </div>
         </nav>
