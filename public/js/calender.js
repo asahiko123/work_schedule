@@ -44,6 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.location.href="/schedule/create";
       },
       eventClick: function(info) {
+        var id = info.event.id;
+        console.log(id);
+        $.ajax({
+            type:`post`,
+            url:'/schedule/update/{id}',
+            data:{
+                'id':id
+            },
+            success:function(response){
+                console.log('送信成功');
+            }
+        });
         $('#exampleModalLabel').html('イベントの更新または削除'); // モーダルのタイトルをセット
         $('#modalBody').html(''); // モーダルの本文をセット
         $('#exampleModal').modal(); // モーダル着火

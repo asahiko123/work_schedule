@@ -132,4 +132,9 @@ class ScheduleController extends Controller
 
         return redirect('schedule/index');
     }
+
+    public function getId(){
+        $id =$_POST['id'];
+        console.log('idの値は'.$id.'です');
+    }
 }
