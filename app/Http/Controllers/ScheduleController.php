@@ -25,7 +25,7 @@ class ScheduleController extends Controller
         $id =Auth::id();
         $forms =User::find($id)->scheduleForms();
         $role =User::find($id)->role;
-
+    
         $schedules =$forms
             ->select('schedule_forms.id',DB::raw('concat(workday,"T",start_time)as start,concat(workday,"T",end_time)as end'),'user_id','name as title')
             ->leftjoin('users','users.id','=','schedule_forms.user_id')
@@ -37,6 +37,7 @@ class ScheduleController extends Controller
               ->leftjoin('users','users.id','=','schedule_forms.user_id')
               ->get();
         }
+
 
         file_put_contents("json-events.json" , $schedules);
 
@@ -109,9 +110,10 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $schedule = ScheduleForm::find($id);
+        
+        $schedule = ScheduleForm::find($request->input('id'));
 
         $schedule->workday = $request->input('workday');
         $schedule->save();
@@ -125,16 +127,13 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $schedule =ScheduleForm::find($id);
+        $schedule =ScheduleForm::find($request->input('id'));
         $schedule->delete();
 
         return redirect('schedule/index');
     }
 
-    public function getId(){
-        $id =$_POST['id'];
-        console.log('idの値は'.$id.'です');
-    }
+
 }

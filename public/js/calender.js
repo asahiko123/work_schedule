@@ -44,18 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.location.href="/schedule/create";
       },
       eventClick: function(info) {
-        var id = info.event.id;
-        console.log(id);
-        $.ajax({
-            type:`post`,
-            url:'/schedule/update/{id}',
-            data:{
-                'id':id
-            },
-            success:function(response){
-                console.log('送信成功');
-            }
-        });
+        var event_id = info.event.id;
+        console.log(info.event);
+        
+        document.getElementById('id').value=info.event.id;
+        
         $('#exampleModalLabel').html('イベントの更新または削除'); // モーダルのタイトルをセット
         $('#modalBody').html(''); // モーダルの本文をセット
         $('#exampleModal').modal(); // モーダル着火
@@ -65,9 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
         //addEvent(calender,info);
       }
     });
-    calendar.render();
 
+    $('#delete-task').on('click',function(){
+      var form = document.getElementById('delete-task-form');
+      var delete_id = document.getElementById('id').value;
+      console.log(delete_id);
+      form.elements['id'].value =delete_id;
+      form.submit();
+    });
+    
+    calendar.render();
+  
   });
+
 
 
 
