@@ -43,12 +43,13 @@ document.addEventListener('DOMContentLoaded', function() {
       select: function(info){
         document.location.href="/schedule/create";
       },
+      selectLongPressDelay:0,
       eventClick: function(info) {
         var event_id = info.event.id;
         console.log(info.event);
-        
+
         document.getElementById('id').value=info.event.id;
-        
+
         $('#exampleModalLabel').html('イベントの更新または削除'); // モーダルのタイトルをセット
         $('#modalBody').html(''); // モーダルの本文をセット
         $('#exampleModal').modal(); // モーダル着火
@@ -66,9 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
       form.elements['id'].value =delete_id;
       form.submit();
     });
-    
+
     calendar.render();
-  
+
   });
 
 
