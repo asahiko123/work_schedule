@@ -46,11 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
       selectLongPressDelay:0,
       eventClick: function(info) {
         var event_id = info.event.id;
-        console.log(info.event);
+        const event_name =info.event.title;
+        const event_start=info.event.start;
+
+        console.log(event_name);
 
         document.getElementById('id').value=info.event.id;
 
-        $('#exampleModalLabel').html('イベントの更新または削除'); // モーダルのタイトルをセット
+        $('#exampleModalLabel').html(`${event_name}さんの${event_start}の予定を変更または削除します。`); // モーダルのタイトルをセット
         $('#modalBody').html(''); // モーダルの本文をセット
         $('#exampleModal').modal(); // モーダル着火
       },
