@@ -12,6 +12,10 @@
         <!--fontawsome-->
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
+        <!-- ウェブアプリマニフェストの読み込み -->
+        <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+        <!-- Apple Touch Icon -->
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
 
         <!-- Styles -->
         <style>
@@ -47,7 +51,21 @@
                     color:white;
                 }
         </style>
+
     </head>
+    <!-- ServiceWorkerの登録 -->
+    <script>
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+        .then(() => {
+            console.log('Service worker registered.');
+        })
+        .catch((error) => {
+            console.warn('ServiceWorker error', error);
+        });
+    }
+    </script>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))

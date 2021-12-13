@@ -43,53 +43,53 @@
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <style>
 
-  body {
-    font-size: 14px;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  }
+        body {
+            font-size: 14px;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        }
 
-  #wrap {
-    width: 1100px;
-    margin: 0 auto;
-  }
+        #wrap {
+            width: 1100px;
+            margin: 0 auto;
+        }
 
-  #external-events {
-    float: left;
-    width: 150px;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    background: #eee;
-    text-align: left;
-  }
+        #external-events {
+            float: left;
+            width: 150px;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            background: #eee;
+            text-align: left;
+        }
 
-  #external-events h4 {
-    font-size: 16px;
-    margin-top: 0;
-    padding-top: 1em;
-  }
+        #external-events h4 {
+            font-size: 16px;
+            margin-top: 0;
+            padding-top: 1em;
+        }
 
-  #external-events .fc-event {
-    margin: 10px 0;
-    cursor: pointer;
-  }
+        #external-events .fc-event {
+            margin: 10px 0;
+            cursor: pointer;
+        }
 
-  #external-events p {
-    margin: 1.5em 0;
-    font-size: 11px;
-    color: #666;
-  }
+        #external-events p {
+            margin: 1.5em 0;
+            font-size: 11px;
+            color: #666;
+        }
 
-  #external-events p input {
-    margin: 0;
-    vertical-align: middle;
-  }
+        #external-events p input {
+            margin: 0;
+            vertical-align: middle;
+        }
 
-  #calendar {
-    float: right;
-    width: 900px;
-  }
+        #calendar {
+            float: right;
+            width: 900px;
+        }
 
-</style>
+    </style>
 </head>
 <!-- ServiceWorkerの登録 -->
 <script>
@@ -102,25 +102,6 @@
           .catch((error) => {
             console.warn('ServiceWorker error', error);
           });
-    }
-
-    function check(){
-        var result =window.confirm('本当に削除しますか?');
-        if(result){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    function authcheck(){
-        var result =window.confirm('変更しますか？');
-
-        if(result){
-            return true;
-        }else{
-            return false;
-        }
     }
 </script>
 <body>
