@@ -37,6 +37,10 @@
     <!--fontawsome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
+    <!-- ウェブアプリマニフェストの読み込み -->
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <style>
 
   body {
@@ -87,6 +91,38 @@
 
 </style>
 </head>
+<!-- ServiceWorkerの登録 -->
+<script>
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => {
+            console.log('Service worker registered.');
+          })
+          .catch((error) => {
+            console.warn('ServiceWorker error', error);
+          });
+    }
+
+    function check(){
+        var result =window.confirm('本当に削除しますか?');
+        if(result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function authcheck(){
+        var result =window.confirm('変更しますか？');
+
+        if(result){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
