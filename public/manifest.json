@@ -2,35 +2,35 @@
     "name":"出勤表アプリ",
     "short_name":"出勤表",
     "icons": [{
-        "src": "/icons/icon-72×72.png",
+        "src": "/icons/icon-72x72.png",
         "sizes": "72x72",
         "type": "image/png"
       },{
-        "src": "/icons/icon-96×96.png",
+        "src": "/icons/icon-96x96.png",
         "sizes": "96x96",
         "type": "image/png"
       },{
-        "src": "/icons/icon-128×128.png",
+        "src": "/icons/icon-128x128.png",
         "sizes": "128x128",
         "type": "image/png"
       },{
-        "src": "/icons/icon-152×152.png",
+        "src": "/icons/icon-152x152.png",
         "sizes": "152x152",
         "type": "image/png"
       },{
-        "src": "/icons/icon-144×144.png",
+        "src": "/icons/icon-144x144.png",
         "sizes": "144x144",
         "type": "image/png"
       },{
-        "src": "/icons/icon-167×167.png",
+        "src": "/icons/icon-167x167.png",
         "sizes":"167x167",
         "type": "image/png"
       }, {
-        "src": "/icons/icon-192×192.png",
+        "src": "/icons/icon-192x192.png",
         "sizes":"192x192",
         "type": "image/png"
       },{
-        "src": "/icons/icon-512×512.png",
+        "src": "/icons/icon-512x512.png",
         "sizes":"512x512",
         "type": "image/png"
       }],
