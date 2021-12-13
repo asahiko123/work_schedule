@@ -49,11 +49,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const event_name =info.event.title;
         const event_start=info.event.start;
 
+        const dateformat = (event_start)=>{
+          let formattedDate =event_start.getFullYear()+"-"+(event_start.getMonth()+1)+"-"+event_start.getDate()
+          return formattedDate;
+        }
+
         console.log(event_name);
 
         document.getElementById('id').value=info.event.id;
 
-        $('#exampleModalLabel').html(`${event_name}さんの${event_start}の予定を変更または削除します。`); // モーダルのタイトルをセット
+        $('#exampleModalLabel').html(`${event_name}さんの${dateformat(event_start)}の予定を変更または削除します。`); // モーダルのタイトルをセット
         $('#modalBody').html(''); // モーダルの本文をセット
         $('#exampleModal').modal(); // モーダル着火
       },
