@@ -40,7 +40,7 @@ class ScheduleController extends Controller
 
         file_put_contents("json-events.json" , $schedules);
 
-        //端末判断
+        //端末によってViewを切り替え
         $user_agent=$request->header('User-Agent');
 
         $user_agent =  $request->header('User-Agent');
@@ -48,12 +48,11 @@ class ScheduleController extends Controller
             || (strpos($user_agent, 'iPod') !== false)
             || (strpos($user_agent, 'Android') !== false)) {
             $terminal ='mobile';
+            return view('schedules.index_io',compact('schedules','terminal'));
         } else {
             $terminal = 'pc';
+            return view('schedules.index',compact('schedules','terminal'));
         }
-
-        return view('schedules.index',compact('schedules','terminal'));
-
     }
 
     /**
