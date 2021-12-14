@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -36,6 +37,19 @@
 
     <!--fontawsome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    
+    <!--calendar.io-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Flexible Calendar with jQuery and CSS3" />
+	<meta name="keywords" content="responsive, calendar, jquery, plugin, full page, flexible, javascript, css3, media queries" />
+	<meta name="author" content="Codrops" />
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../../css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/calendar_io.css" />
+	{{-- <link rel="stylesheet" type="text/css" href="../../css/custom_1.css" /> --}}
+	<script src="../../js/modernizr.custom.63321.js"></script>
+
 
     <!-- ウェブアプリマニフェストの読み込み -->
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">

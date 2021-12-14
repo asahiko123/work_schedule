@@ -38,10 +38,21 @@ class ScheduleController extends Controller
               ->get();
         }
 
-
         file_put_contents("json-events.json" , $schedules);
 
-        return view('schedules.index',compact('schedules'));
+        //端末判断
+        $user_agent=$request->header('User-Agent');
+
+        $user_agent =  $request->header('User-Agent');
+        if ((strpos($user_agent, 'iPhone') !== false)
+            || (strpos($user_agent, 'iPod') !== false)
+            || (strpos($user_agent, 'Android') !== false)) {
+            $terminal ='mobile';
+        } else {
+            $terminal = 'pc';
+        }
+
+        return view('schedules.index',compact('schedules','terminal'));
 
     }
 
