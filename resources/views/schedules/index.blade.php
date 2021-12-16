@@ -70,10 +70,10 @@
         </div>
         @endcan
         <!-- fullcalendar -->
-        <?php
+        {{-- <?php
         $useragent = $_SERVER['HTTP_USER_AGENT'];
         print($useragent);
-        ?>
+        ?> --}}
         <div id='calendar'></div>
         <div style='clear:both'></div>
         </div>
