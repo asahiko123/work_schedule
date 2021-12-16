@@ -36,6 +36,12 @@
 				</div>
 				<div id="calendar" class="fc-calendar-container"></div>
 			</div>
+            @foreach($schedules as $schedule)
+                <!-- <span id="sptitle"data-title="{{$schedule->title}}"></span>
+                <span id="spdate"data-title="{{$schedule->start}}"></span> -->
+                <span class="spdata" data-date="{{$schedule->start}}" data-title="{{$schedule->title}}"></span>
+            @endforeach
+
 		</div><!-- /container -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src="../../js/jquery.calendario.js"></script>
@@ -51,7 +57,7 @@
 							}
 
 						},
-						caldata : codropsEvents
+						caldata : spevent
 					} ),
 					$month = $( '#custom-month' ).html( cal.getMonthName() ),
 					$year = $( '#custom-year' ).html( cal.getYear() );

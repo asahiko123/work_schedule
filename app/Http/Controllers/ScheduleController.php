@@ -48,6 +48,7 @@ class ScheduleController extends Controller
             || (strpos($user_agent, 'iPod') !== false)
             || (strpos($user_agent, 'Android') !== false)) {
             $terminal ='mobile';
+
             return view('schedules.index_io',compact('schedules','terminal'));
         } else {
             $terminal = 'pc';

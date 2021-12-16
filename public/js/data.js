@@ -20,3 +20,52 @@ var codropsEvents = {
 	]
 
 };
+
+//JQueryでbladeのdata属性を取得
+var multi =$('.spdata');
+var data_array =[];
+
+$.each(multi,function(index,item){
+
+    //Dateオブジェクトに変換後
+    //フォーマットして配列に格納
+    const parseDate = Date.parse($(item).data('date'))
+    const dt = new Date(parseDate);
+    console.log(dt);
+
+    const dateformatted = (dt)=>{
+        let formattedDate = (dt.getMonth()+1) +"-"+dt.getDate()+"-"+dt.getFullYear();
+        return formattedDate;
+    }
+
+    data_array.push({[dateformatted(dt)] : $(item).data('title')} );
+
+    //`${dateformatted(dt)}: ${$(item).data('title')}`
+});
+
+console.log(data_array);
+
+// let title =document.getElementById('sptitle');
+// let date  =document.getElementById('spdate');
+
+// const titleset = title.dataset.title;
+// const dateset =  date.dataset.title;
+// const d ='12-25-2021';
+
+//Dateオブジェクトに変換
+// const ts = Date.parse(dateset);
+// console.log(ts);
+// const dt = new Date(ts);
+// console.log(dt);
+
+// //Dateオブジェクトをcalendario向けにフォーマット
+// const dateformatted = (dt)=>{
+//     let formattedDate = (dt.getMonth()+1) +"-"+dt.getDate()+"-"+dt.getFullYear();
+//     return formattedDate;
+// }
+
+// var spevent = {
+//     [dateformatted(dt)] : titleset
+// };
+
+
