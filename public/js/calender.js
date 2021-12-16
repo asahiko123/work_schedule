@@ -1,33 +1,13 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     var Calendar = FullCalendar.Calendar;
-    var Draggable = FullCalendarInteraction.Draggable
-
-
-    //// the individual way to do it
-    // var containerEl = document.getElementById('external-events-list');
-    // var eventEls = Array.prototype.slice.call(
-    //   containerEl.querySelectorAll('.fc-event')
-    // );
-    // eventEls.forEach(function(eventEl) {
-    //   new Draggable(eventEl, {
-    //     eventData: {
-    //       title: eventEl.innerText.trim(),
-    //     }
-    //   });
-    // });
 
     /* initialize the calendar
     -----------------------------------------------------------------*/
 
     var calendarEl = document.getElementById('calendar');
     var calendar = new Calendar(calendarEl, {
-      plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-      },
+
       views: {
         timeGridWeek: {
           titleFormat: function (date) {
@@ -47,16 +27,28 @@ document.addEventListener('DOMContentLoaded', function() {
             const week = ['(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)'][weekNum];
       
             return day + ' ' + week;
-          },
-          
-        },
+          }
+        }
+      },
+      height: '100%',
+      expandRows: true,
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
       },
       locale:'ja',
-      dayMaxEvents:true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      dayMaxEvents: 2, 
       buttonText: {
         today: '今月',
         month: '月',
+        week:'週',
+        day:'日',
         list: '予定'
+      },
+      dayCellContent: function (e) {
+        e.dayNumberText = e.dayNumberText.replace('日', '');
       },
       editable: false,
       droppable: false, // this allows things to be dropped onto the calendar

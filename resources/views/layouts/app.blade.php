@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
@@ -22,18 +23,10 @@
 
     <!-- fullcalender-->
 
-    <link href='../../css/core/main.css' rel='stylesheet' />
-    <link href='../../css/daygrid/main.css' rel='stylesheet' />
-    <link href='../../css/timegrid/main.css' rel='stylesheet' />
-    <link href='../../css/list/main.css' rel='stylesheet' />
-    <link href='../../css/calendar.css' rel='stylesheet' />
-    <script src='../../js/core/main.js'></script>
-    <script src='../../js/core/locales-all.js'></script>
-    <script src='../../js/interaction/main.js'></script>
-    <script src='../../js/daygrid/main.js'></script>
-    <script src='../../js/timegrid/main.js'></script>
-    <script src='../../js/list/main.js'></script>
+    <link href='../../css/main.css' rel='stylesheet' />
+    <link href='../../css/calender.css' rel='stylesheet' />
     <script src='../../js/calender.js'></script>
+    <script src='../../js/main.js'></script>
 
     <!--fontawsome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -44,53 +37,32 @@
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <style>
 
-        body {
-            font-size: 14px;
-            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        html, body {
+          overflow: hidden; /* don't do scrollbars */
+          font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+          font-size: 14px;
         }
-
-        #wrap {
-            width: 1100px;
-            margin: 0 auto;
+      
+        #calendar-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
         }
-
-        #external-events {
-            float: left;
-            width: 150px;
-            padding: 0 10px;
-            border: 1px solid #ccc;
-            background: #eee;
-            text-align: left;
+      
+        .fc-header-toolbar {
+          /*
+          the calendar will be butting up against the edges,
+          but let's scoot in the header's buttons
+          */
+          padding-top: 1em;
+          padding-left: 1em;
+          padding-right: 1em;
         }
-
-        #external-events h4 {
-            font-size: 16px;
-            margin-top: 0;
-            padding-top: 1em;
-        }
-
-        #external-events .fc-event {
-            margin: 10px 0;
-            cursor: pointer;
-        }
-
-        #external-events p {
-            margin: 1.5em 0;
-            font-size: 11px;
-            color: #666;
-        }
-
-        #external-events p input {
-            margin: 0;
-            vertical-align: middle;
-        }
-
-        #calendar {
-            float: right;
-            width: 900px;
-        }
-
+      
     </style>
+    
 </head>
 <!-- ServiceWorkerの登録 -->
 <script>
