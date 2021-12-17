@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
       select: function(info){
         document.location.href="/schedule/create";
       },
-    //   contentHeight:'auto',
+      contentHeight:'auto',
       selectLongPressDelay:0,
       eventClick: function(info) {
         var event_id = info.event.id;
