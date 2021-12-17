@@ -70,9 +70,9 @@
         </div>
         @endcan
         <!-- fullcalendar -->
-
-        <div id='calendar'></div>
-
+        <div class="calendar-container">
+            <div id='calendar'></div>
+        </div>
     </div>
 </div>
 @endsection
