@@ -13,25 +13,24 @@ document.addEventListener('DOMContentLoaded', function() {
           titleFormat: function (date) {
             const startMonth = date.start.month + 1;
             const endMonth = date.end.month + 1;
-      
+
             // 1週間のうちに月をまたぐかどうかの分岐処理
             if (startMonth === endMonth) {
                return startMonth + '月';
             } else {
-               return startMonth + '月～' + endMonth + '月'; 
+               return startMonth + '月～' + endMonth + '月';
             }
           },
           dayHeaderFormat: function (date) {
             const day = date.date.day;
             const weekNum = date.date.marker.getDay();
             const week = ['(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)'][weekNum];
-      
+
             return day + ' ' + week;
           }
         }
       },
-      height: '100%',
-      expandRows: true,
+
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       locale:'ja',
       dayMaxEvents: true, // allow "more" link when too many events
-      dayMaxEvents: 2, 
+      dayMaxEvents: 2,
       buttonText: {
         today: '今月',
         month: '月',
@@ -60,12 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       },
       events:'../json-events.json',
-     
+
       selectable: true,
       select: function(info){
         document.location.href="/schedule/create";
       },
-      contentHeight:'auto',
+    //   contentHeight:'auto',
       selectLongPressDelay:0,
       eventClick: function(info) {
         var event_id = info.event.id;
