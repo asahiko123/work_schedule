@@ -35,6 +35,8 @@
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+
+
     <style>
 
         html, body {
@@ -42,7 +44,7 @@
           font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
           font-size: 14px;
         }
-      
+
         #calendar-container {
           position: fixed;
           top: 0;
@@ -50,7 +52,7 @@
           right: 0;
           bottom: 0;
         }
-      
+
         .fc-header-toolbar {
           /*
           the calendar will be butting up against the edges,
@@ -60,9 +62,9 @@
           padding-left: 1em;
           padding-right: 1em;
         }
-      
+
     </style>
-    
+
 </head>
 <!-- ServiceWorkerの登録 -->
 <script>
@@ -76,7 +78,9 @@
             console.warn('ServiceWorker error', error);
           });
     }
+
 </script>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -138,5 +142,6 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>

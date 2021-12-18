@@ -49,6 +49,7 @@
                     <label>備考</label>
                     <textarea name="description" class="form-control col-md-12 mb-3"></textarea>
                     </div>
+                    <input type="text" id="sample">
                     <div class="col-md-12">
                         <input class="btn btn-info" type="submit" value="登録する">
                         <a class="btn btn-success" href="{{route('schedules.index')}}">戻る</a>
@@ -57,9 +58,21 @@
                     </div>
                     </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    var sample = document.getElementById('sample');
+    var fp = flatpickr(sample,{
+        mode: "multiple",
+        dateFormat: "Y-m-d"
+    });
+</script>
+
 @endsection
