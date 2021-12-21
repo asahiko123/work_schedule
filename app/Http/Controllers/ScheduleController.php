@@ -65,15 +65,23 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $schedule = new ScheduleForm;
+        $newDateList = explode(",",$request->input('workday'));
+        // dd(explode(",",$request->input('workday')));
 
-        $schedule->description = $request->input('description');
-        $schedule->workday = $request->input('workday');
-        $schedule->start_time =$request->input('start_time');
-        $schedule->end_time = $request->input('end_time');
-        $schedule->user_id = $request->input('user_id');
+        foreach($newDateList as $date){
 
-        $schedule->save();
+            $schedule = new ScheduleForm;
+
+            $schedule->description = $request->input('description');
+            $schedule->workday = $date;
+            // dd($date);
+            $schedule->start_time =$request->input('start_time');
+            $schedule->end_time = $request->input('end_time');
+            $schedule->user_id = $request->input('user_id');
+
+            $schedule->save();
+
+        }
 
         return redirect('schedule/index');
 

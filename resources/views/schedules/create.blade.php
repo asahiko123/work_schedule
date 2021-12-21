@@ -34,7 +34,7 @@
 
                     <div class="col-md-12">
                         <label>勤務日</label>
-                        <input type="date" class="form-control mb-3" name="workday"required>
+                        <input type="text" class="form-control mb-3" name="workday" id="sample">
                     </div>
                     <div class="col-md-12">
                         <label>開始時刻</label>
@@ -49,7 +49,7 @@
                     <label>備考</label>
                     <textarea name="description" class="form-control col-md-12 mb-3"></textarea>
                     </div>
-                    <input type="text" id="sample">
+
                     <div class="col-md-12">
                         <input class="btn btn-info" type="submit" value="登録する">
                         <a class="btn btn-success" href="{{route('schedules.index')}}">戻る</a>
