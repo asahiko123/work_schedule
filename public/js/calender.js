@@ -1,12 +1,29 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     var Calendar = FullCalendar.Calendar;
+    let calSettings;
+
+    if(window.innerWidth < 768){
+        calSettings = {initialView: 'listMonth'};
+    }else{
+        calSettings = {initialView: 'dayGridMonth'};
+    }
 
     /* initialize the calendar
     -----------------------------------------------------------------*/
 
     var calendarEl = document.getElementById('calendar');
     var calendar = new Calendar(calendarEl, {
+
+      initialView: calSettings.initialView,
+
+      windowResize:function(){
+        if(window.innerWidth < 768){
+            calendar.changeView('listMonth');
+        }else{
+            calendar.changeView('dayGridMonth');
+        }
+      },
 
       views: {
         timeGridWeek: {
@@ -36,9 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
       },
+
       locale:'ja',
       dayMaxEvents: true, // allow "more" link when too many events
-      dayMaxEvents: 2,
+      dayMaxEvents: 3,
       buttonText: {
         today: '今月',
         month: '月',
@@ -46,9 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
         day:'日',
         list: '予定'
       },
+
       dayCellContent: function (e) {
         e.dayNumberText = e.dayNumberText.replace('日', '');
       },
+
       editable: false,
       droppable: false, // this allows things to be dropped onto the calendar
       drop: function(arg) {
@@ -58,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
       },
+
       events:'../json-events.json',
 
       selectable: true,
@@ -83,6 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
         $('#exampleModalLabel').html(`${event_name}さんの${dateformat(event_start)}の予定を変更または削除します。`); // モーダルのタイトルをセット
         $('#modalBody').html(''); // モーダルの本文をセット
         $('#exampleModal').modal(); // モーダル着火
+      },
+      eventRender:function(event, element){
+        element.find('.fc-title').append('<div class="hr-line-solid-no-margin"></div><span style="font-size: 10px">' + event.description + '</span></div>')
       },
       eventDrop:function(info){
           //eventをドロップした時の処理
