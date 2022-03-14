@@ -78,7 +78,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('form.register.register') }}
                                 </button>
-                                <button type="button" class="btn btn-success"onClick ="history.back()">戻る</button>
+                                <a class="btn btn-success" href ="{{ url('/') }}">戻る</a>
                             </div>
                         </div>
                     </form>
