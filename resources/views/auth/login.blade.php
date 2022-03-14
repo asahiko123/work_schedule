@@ -62,6 +62,7 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif -->
+                                <button type="button" class="btn btn-success"onClick ="history.back()">戻る</button>
                             </div>
                         </div>
                     </form>
