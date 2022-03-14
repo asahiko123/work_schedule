@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "flatpickr": "^4.6.9"
+        "flatpickr": "^4.6.9",
+        "fullcalendar": "^5.10.2"
     }
 }
